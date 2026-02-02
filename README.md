@@ -1,4 +1,4 @@
-# verify_agent skills
+# agent-audit-skill
 
 A gatekeeper/audit playbook for validating RAG + Agent systems across Stage0~Stage4 with evidence-first rules, hard blockers, and reproducible scoring.
 
@@ -7,10 +7,15 @@ A gatekeeper/audit playbook for validating RAG + Agent systems across Stage0~Sta
 - `SKILL.md` — the full playbook (v1.2.0)
 - `LICENSE` — MIT
 
+## Identity
+
+- Internal skill name: `verify-agent-rag-playbook`
+- Trigger word: `agent-audit-skill`
+
 ## Quick Start (Codex skills)
 
 1) Copy `SKILL.md` into your Codex skills directory.
-2) In your `verify_agent` system prompt, declare:
+2) In your `agent-audit-skill` system prompt, declare:
    - Follow Trigger / Input Contract / Interrogation Protocol / Output Contract
    - No evidence => UNKNOWN=FAIL
    - Use Scoring Spec (Appendix C) to compute `overall_result`
@@ -18,7 +23,7 @@ A gatekeeper/audit playbook for validating RAG + Agent systems across Stage0~Sta
 3) Run with a gate prompt, e.g.
 
 ```
-verify_agent，我们要做 Stage2 标准版验收。这里是指标与证据清单（…）。请按门禁输出 JSON 审计报告。
+agent-audit-skill，我们要做 Stage2 标准版验收。这里是指标与证据清单（…）。请按门禁输出 JSON 审计报告。
 ```
 
 ## Notes
