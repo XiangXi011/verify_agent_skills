@@ -5,7 +5,7 @@ description: >
   输出结构化 JSON 审计报告、阻断项(Blockers)、风险项(Risks)与修复优先级，并通过追问协议(Interrogation Protocol)防止“口头通过”。
   额外增强：证据判定规则(Evidence Validation Rules)、证据→评分映射公式(Scoring Spec)、指标口径(Metric Definitions)、例外放行流程、威胁模型速查、缓存/多租户专项、灰度回滚条款、事故复盘模板、Stage4 训练闸门细化。
 ---
-# verify_agent Skill — RAG/Agent 上线验证与韧性评审（Complete v1.2.0）
+# agent-audit-skill — RAG/Agent 上线验证与韧性评审（Complete v1.2.0）
 
 ## 1) Prime Directive（核心原则）
 
@@ -33,7 +33,7 @@ Data（去重/切片/权限）→ Retrieval（Hybrid/Rerank/Rewrite/缓存）→
 
 ## 3) Triggers（触发条件）
 
-在以下意图/事件出现时必须启用 verify_agent：
+在以下意图/事件出现时必须启用 agent-audit-skill：
 
 1. **Gate Review**：准备上线/验收（MVP/标准/企业/飞轮）
 2. **Change Request**：改了 Prompt / Chunk / Index / Rerank / 模型 / 路由 / 缓存 / 权限 / 工具
@@ -424,9 +424,9 @@ JSON 供 CI/CD 或审计入库解析。
 
 ## 14) Quick Prompts（给人类的调用示例）
 
-* “verify_agent，我们要做 Stage2 标准版验收。这里是指标与证据清单（…）。请按门禁输出 JSON 审计报告。”
-* “verify_agent，我们改了 chunk size 和 rerank topK，这是回归报告（…）。请做 Change Review。”
-* “verify_agent，昨天出现幻觉与越权投诉，这是日志（…）。请做 Incident Analysis 并给修复优先级。”
+* “agent-audit-skill，我们要做 Stage2 标准版验收。这里是指标与证据清单（…）。请按门禁输出 JSON 审计报告。”
+* “agent-audit-skill，我们改了 chunk size 和 rerank topK，这是回归报告（…）。请做 Change Review。”
+* “agent-audit-skill，昨天出现幻觉与越权投诉，这是日志（…）。请做 Incident Analysis 并给修复优先级。”
 
 ---
 
@@ -756,7 +756,7 @@ Stage2+ 建议默认门槛：
 
 ## 你可以直接怎么用
 
-把这一整份文件保存为 `verify-agent-rag-playbook.md`（或你技能系统要求的路径），在 verify_agent 的 system prompt 里声明：
+把这一整份文件保存为 `verify-agent-rag-playbook.md`（或你技能系统要求的路径），在 agent-audit-skill 的 system prompt 里声明：
 
 * **必须遵循本 skill 的 Trigger / Input Contract / Interrogation Protocol / Output Contract**
 * **任何无证据项按 UNKNOWN=FAIL 处理**
